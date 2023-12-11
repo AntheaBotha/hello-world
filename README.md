@@ -1,4 +1,15 @@
 # hello-world
+function logResponse() 
+{
+  $.post('https://httpbin.org/get?key=hello&value=world',{},function(response) 
+  {     data = response;
+		console.log(response)
+  }).error(function(){
+  console.log(alert("Sorry could not proceed"));
+});
+
+    return data;
+}
 <head>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -9,6 +20,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 </head>
 <body>
+
+  <button onclick="logResponse()">Hello World</button>
+  
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5VZGSP53"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
