@@ -22,16 +22,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script>
   function consoleLog(event) {
   var url = document.getElementById("url");
-  var key = document.getElementById("key");
-  var value = document.getElementById("value");
-  var call = url+"?key="+key+"&value="+value
-  console.log(event.result); 
+  const key = document.getElementById("key");
+  const keyVal = document.getElementById("key").value;
+  const Value = document.getElementById("value").value;
+  const call = url+"?key="+key+"&value="+value;
+  const searchUrl = new URL("https://httpbin.org/get");
+  searchUrl.searchParams.append("key", key);
+  searchUrl.searchParams.append("value", value);
+  console.log('URL is ', searchUrl.href);
+  console.log('Built URL is ', call);
+  console.log('Event Result', event.response);
+  console.log('Event is ', event); 
 	}
   </script>
   
   <form action="" id="form" onsubmit="consoleLog(event)">
   <p><label>Click Button to Run GET Request</label></p>
-  <input type="hidden" name="url" value="https://httpbin.org/get">
+  <input type="hidden" name="url" value="https://httpbin.org/get" id="url">
   <p><label>Key</label></p>
   <input type="text" size="50" maxlength="50" name="key" value="hello" id="key">
   <br>
