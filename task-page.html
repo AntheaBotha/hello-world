@@ -18,6 +18,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5VZGSP53"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
+
+<script>
+  function sConsole(event) {
+  var url = document.getElementById("url");
+  var key = document.getElementById("key");
+  var value = document.getElementById("value");
+  var call = url+"?key="+key+"&value="+value
+  console.log(event); 
+	}
+  </script>
+  
+  <form action="" id="form" onsubmit="sConsole(event)">
+  <p><label>Click Button to Run GET Request</label></p>
+  <input type="hidden" name="url" value="https://httpbin.org/get">
+  <p><label>Key</label></p>
+  <input type="text" size="50" maxlength="50" name="key" value="hello" id="key">
+  <br>
+  <p><label>Value</label></p>
+  <input type="text" size="50" maxlength="50" name="value" value="world" id="value">
+  <br>
+  <p><input type="submit" value="SUBMIT" class="center"></input></p>
+  </form>
+
 </body>
 
 
