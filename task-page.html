@@ -20,16 +20,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
 <script>
-  function sConsole(event) {
+  function consoleLog(event) {
   var url = document.getElementById("url");
   var key = document.getElementById("key");
   var value = document.getElementById("value");
   var call = url+"?key="+key+"&value="+value
-  console.log(event); 
+  console.log(event.result); 
 	}
   </script>
   
-  <form action="" id="form" onsubmit="sConsole(event)">
+  <form action="https://httpbin.org/get?key=hello&value=world" id="form" onsubmit="consoleLog(event)">
   <p><label>Click Button to Run GET Request</label></p>
   <input type="hidden" name="url" value="https://httpbin.org/get">
   <p><label>Key</label></p>
