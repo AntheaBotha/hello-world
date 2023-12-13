@@ -20,20 +20,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
 <script>
-  function consoleLog(event) {
-  var url = document.getElementById("url");
-  const key = document.getElementById("key");
-  const keyVal = document.getElementById("key").value;
-  const Value = document.getElementById("value").value;
-  const call = url+"?key="+key+"&value="+value;
-  const searchUrl = new URL("https://httpbin.org/get");
-  searchUrl.searchParams.append("key", keyVal);
-  searchUrl.searchParams.append("value", Value);
-  console.log('URL is ', searchUrl.href);
-  console.log('URL Result is ',window.location.href = searchUrl.href);
-  console.log('Event is ', event); 
-	}
-  </script>
+function runUrl(newUrl) {
+var xmlHttp = null;
+xmlHttp = new XMLHttpRequest();
+xmlHttp.open( "GET", newUrl, false );
+xmlHttp.send( null );
+return xmlHttp.responseText;
+}
+</script>
+ 
+<script>
+function consoleLog(event) {
+var url = document.getElementById("url");
+const keyVal = document.getElementById("key").value;
+const Value = document.getElementById("value").value;
+const searchUrl = new URL("https://httpbin.org/get");
+searchUrl.searchParams.append("key", keyVal);
+searchUrl.searchParams.append("value", Value);
+console.log('URL is ', searchUrl.href);
+console.log('Event Result', runUrl(searchUrl.href));
+console.log('Event is ', event); 
+}
+</script>
   
   <form action="" id="form" onsubmit="consoleLog(event)">
   <p><label>Click Button to Run GET Request</label></p>
